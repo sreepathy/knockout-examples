@@ -12,7 +12,9 @@
 
 
    <body>
+
     <div class="container">
+      <h3>Using Arrays - foreach - Bootstrap - add Rows</h3>
 
       <div class="row">
         <div class="col col-lg-10 col-md-10 col-sm-10 offset-lg-1 offset-md-1 offset-sm-1">
@@ -61,7 +63,7 @@
          function AppViewModel() 
          {
            var self =this;
-           self.newName = ko.observable();
+           self.newName = ko.observable('Enter name here');
            self.newAge = ko.observable();
            self.newOccupation = ko.observable();
            
@@ -89,6 +91,7 @@
                 age: self.newAge(),
                 occupation: self.newOccupation()
               });
+              
               self.newName("");
               self.newAge("");
               self.newOccupation("");

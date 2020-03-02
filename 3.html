@@ -6,12 +6,15 @@
    </head>
 
    <body>
+      <h3>Computed Binding</h3>
 
       <p>First number: <input data-bind = "value: firstNumber" /></p>
       <p>Second number: <input data-bind = "value: secondNumber" /></p>
+      <p>Third number: <input data-bind = "value: thirdNumber" /></p>
 
       
       <p>Sum : <strong data-bind = "text: sum"></strong></p>
+      <p>Product : <strong data-bind = "text: multiply"></strong></p>
 
       <script>
 
@@ -19,15 +22,30 @@
          {
             this.firstNumber = ko.observable('1');
             this.secondNumber = ko.observable('2');
+            this.thirdNumber = ko.observable('3');
 
            this.sum = ko.computed(function()
             {
+               alert("A")
                return parseFloat(this.firstNumber()) + parseFloat(this.secondNumber());
+            }, this);
+           this.multiply = ko.computed(function()
+            {
+               alert("B")
+               return parseFloat(this.firstNumber()) * parseFloat(this.thirdNumber());
             }, this);
          }
 
+
+         
+
          var model = new AppViewModel();
          
+         setTimeout(function(){
+            alert("going to change ");
+            model.thirdNumber("4");
+         },3000);
+
          ko.applyBindings(model);
       </script>
 

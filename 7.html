@@ -6,14 +6,16 @@
    </head>
    
    <body>
+      <h3>Using Arrays - foreach</h3>
+
       <p>List of courses available:</p>
       <ul data-bind = "foreach: courseArray ">
-         <li data-bind = "text: $data.a"><span data-bind="text: $index"></span></li>
+         <li data-bind = "text: $data"></li>
       </ul>
 
       <script type="text/javascript">
          function AppViewModel() {
-            this.courseArray = ([{a:'JavaScript'},{a:'KnockoutJS'},{a:'BackboneJS'},{a:'EmberJS'}]);
+            this.courseArray = ko.observableArray([{ab:'JavaScript'},{ab:'KnockoutJS'},{ab:'BackboneJS'},{ab:'EmberJS'}]);
 
          };
          

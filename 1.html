@@ -7,14 +7,16 @@
 
    <body>
       <!-- This is called "view" of HTML markup that defines the appearance of UI -->
-
+      <h3>Hello World</h3>
       <div data-bind = "text: MyString"></div>
 
+      <input data-bind ="value: MyString" />
+      <span data-bind = "html: MyString"></span>
       <script>
          
 
          function AppViewModel() {
-            this.MyString = ko.observable("Hello world");            
+            this.MyString = ko.observable("<b>Hello world</b>");            
          }
 
 
@@ -22,6 +24,8 @@
          ko.applyBindings(model);
 
          // Activates knockout.js
+
+         $("div").text(this.MyString());
          
       </script>
 

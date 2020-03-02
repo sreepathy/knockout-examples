@@ -11,6 +11,7 @@
 
    <body>
     <div class="container">
+      <h3>Using with - binding context</h3>
 
       <div class="row">
         <div class="col col-lg-10 col-md-10 col-sm-10 offset-lg-1 offset-md-1 offset-sm-1">
@@ -29,9 +30,9 @@
                 <td data-bind="text:name"></td>
                 <td data-bind="text:age"></td>
                 <td data-bind="text:occupation"></td>
-                <td data-bind="with:$data">
-                	<ul data-bind="foreach: loans">
-                		<li data-bind="text: $data"></li>
+                <td >
+                	<ul data-bind="foreach: $data.loans">
+                		<li data-bind="text: $data.a"></li>
                 	</ul>
                 </td>
                 <td>
@@ -62,8 +63,8 @@
 
 
             self.contacts = ko.observableArray([
-              {name: 'Alice',age: 55, occupation: 'Teacher', loans: ['12345','23456','34567']},
-              {name: 'Bob',age: 45, occupation: 'Carpenter', loans: ['12346','23457']},
+              {name: 'Alice',age: 55, occupation: 'Teacher', loans: [{a:'12345'},{a:'23456'},{a:'34567'}]},
+              {name: 'Bob',age: 45, occupation: 'Carpenter', loans: [{a:'12346'},{a:'23457'}]},
               {name: 'Catherine',age: 65, occupation: 'Baker', loans: []},
               {name: 'David',age: 35, occupation: 'Driver',loans:null}
             ]);
