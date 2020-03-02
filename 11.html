@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS Simple Example</title>
+      <script src = "knockout-3.5.1.js" 
+         type = "text/javascript"></script>
+      
+   </head>
+
+
+
+   <body>
+
+     <ul data-bind="foreach: contacts">
+      <li><span  data-bind="text: $data.name"></span><button data-bind="click:$parent.deleteItem">X</button></li>
+     </ul>
+
+      <script type="text/javascript">
+
+
+
+         function AppViewModel() 
+         {
+           var self =this;
+            this.contacts = ko.observableArray([
+              {name: 'Alice'},
+              {name: 'Bob'},
+              {name: 'Cat'},
+              {name: 'Dog'}
+            ]);
+
+            this.deleteItem = function(){
+              alert("deleting "+ this.name)
+              self.contacts.remove(this);
+            }
+         }
+
+
+         var model = new AppViewModel();
+         ko.applyBindings(model);
+
+         
+      </script>
+
+   </body>
+
+
+</html>

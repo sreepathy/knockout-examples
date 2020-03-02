@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS Simple Example</title>
+      <script src = "knockout-3.5.1.js" 
+         type = "text/javascript"></script>
+   </head>
+
+   <body>
+
+      <p>First number: <input data-bind = "value: firstNumber" /></p>
+      <p>Second number: <input data-bind = "value: secondNumber" /></p>
+
+      
+      <p>Sum : <strong data-bind = "text: sum"></strong></p>
+
+      <script>
+
+         function AppViewModel() 
+         {
+            this.firstNumber = ko.observable('1');
+            this.secondNumber = ko.observable('2');
+
+           this.sum = ko.computed(function()
+            {
+               return parseFloat(this.firstNumber()) + parseFloat(this.secondNumber());
+            }, this);
+         }
+
+         var model = new AppViewModel();
+         
+         ko.applyBindings(model);
+      </script>
+
+   </body>
+</html>

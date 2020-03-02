@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS Simple Example</title>
+      <script src = "knockout-3.5.1.js" 
+         type = "text/javascript"></script>
+   </head>
+
+   <body>
+      <!-- This is called "view" of HTML markup that defines the appearance of UI -->
+
+      <div data-bind = "text: MyString"></div>
+
+      <script>
+         
+
+         function AppViewModel() {
+            this.MyString = ko.observable("Hello world");            
+         }
+
+
+         var model = new AppViewModel();
+         ko.applyBindings(model);
+
+         
+
+         setTimeout(function(){
+            alert("going to change "+ model.MyString());
+            model.MyString("Hello India");
+         },3000);
+
+
+         
+      </script>
+
+   </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS Simple Example</title>
+      <script src = "knockout-3.5.1.js" 
+         type = "text/javascript"></script>
+      <style type="text/css">
+         .Eligible
+         {
+            color: green;
+         }
+
+         .NotEligible
+         {
+            color: red;
+         }
+
+         .btn
+         {
+            padding: 5px;
+            border-radius: 3px;
+            border: thin solid #00d;
+         }
+      </style>
+   </head>
+
+   <body>
+
+      <p>First number: <input data-bind = "value: firstNumber" /></p>
+      <p>Second number: <input data-bind = "value: secondNumber" /></p>
+
+      
+      <p>Sum : <strong data-bind = "text: sum"></strong></p>
+      <button class='btn' data-bind="click: alertJSON">Serialise the form</button>
+      <script>
+
+         function AppViewModel() 
+         {
+            this.firstNumber = ko.observable('1');
+            this.secondNumber = ko.observable('2');
+
+           this.sum = ko.computed(function()
+            {
+               return parseFloat(this.firstNumber()) + parseFloat(this.secondNumber());
+            }, this);
+
+           
+         }
+
+         var model = new AppViewModel();
+         ko.applyBindings(model);
+
+         function alertJSON(){
+            alert(ko.toJSON(model));
+         }
+
+
+         
+      </script>
+
+   </body>
+</html>

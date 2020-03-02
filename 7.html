@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS Simple Example</title>
+      <script src = "knockout-3.5.1.js" 
+         type = "text/javascript"></script>
+   </head>
+   
+   <body>
+      <p>List of courses available:</p>
+      <ul data-bind = "foreach: courseArray ">
+         <li data-bind = "text: $data.a"><span data-bind="text: $index"></span></li>
+      </ul>
+
+      <script type="text/javascript">
+         function AppViewModel() {
+            this.courseArray = ([{a:'JavaScript'},{a:'KnockoutJS'},{a:'BackboneJS'},{a:'EmberJS'}]);
+
+         };
+         
+         var vm = new AppViewModel();
+         ko.applyBindings(vm);
+      </script>
+      
+   </body>
+</html>
